@@ -5,7 +5,7 @@ checkDate(){
     var=$1
     if [ ${#var} -ne 10 ] ; then return 0; fi
     if [ "${var:4:1}" != '-' ] || [ "${var:7:1}" != '-' ] ; then return 0; fi
-    if date  -d "$var" ; then return 1 ;else return 0;fi
+    if date  -d "$var" > /dev/null ; then return 1 ;else return 0;fi
 
 
 }
@@ -30,7 +30,7 @@ TimeArg(){
                 
                 if [ -z "$c2" ] ; then  continue ; fi
                 dataDate="${c2:0:10}"
-                if [[ ( "$dataDate" > $valJ || "$dataDate" == "$valJ" ) && ( "$dataDate" < valK || "$dataDate" == "valK" ) ]] ; then
+                if [[ ( "$dataDate" > $valJ || "$dataDate" == "$valJ" ) && ( "$dataDate" < $valK || "$dataDate" == "$valK" ) ]] ; then
                     echo "$c1;$c2;$c3;$c4;$c5;$c6;$c7;$c8;$c9" >> ./Data/Middle/WeatherbyT.csv
                 fi
             done < ./Data/Middle/WeatherbyP.csv

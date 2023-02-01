@@ -40,7 +40,7 @@ searchPlace (){
                 fi
             done
         fi
-    done < "$path"
+    done < ./Data/Start/Weather.csv
 
 }
 
@@ -109,7 +109,7 @@ SpaceArg(){
         esac
 
     done
-    cp "$path" ./Data/Middle/WeatherbyP.csv
+    cp ./Data/Start/Weather.csv ./Data/Middle/WeatherbyP.csv
     return 1
 
 }

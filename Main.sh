@@ -3,9 +3,6 @@
 
 for f in ./Source/Shell/*.sh ; do source "$f"; done
 
-path="./"
-
-
 
 if checkFile "$@" ; then 
     echo "Erreur veuillez donnez l'argument -f"
