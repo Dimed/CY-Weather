@@ -21,3 +21,8 @@ if TimeArg "$@" ; then
 fi
 
 
+if TypeArg "$@" ; then 
+    echo "Erreur veuillez donnez au moins 1 type de donné"
+    exit 4
+fi
+
