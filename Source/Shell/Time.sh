@@ -12,7 +12,7 @@ checkDate(){
 
 TimeArg(){
 
-    rm -f ./Data/SelectedLine/WeatherbyT.csv
+    rm -f ./Data/FirstSelection/WeatherbyT.csv
 
 
     for (( i=1; i<=$#; i++)) ; do
@@ -24,20 +24,20 @@ TimeArg(){
             valK=${!k}
             if checkDate ${!j} || checkDate ${!k}; then return 0; fi
             if [[ $valJ > $valK ]] ; then return 0; fi
-            echo "ID OMM station;Date;Pression au niveau mer;Direction du vent moyen 10 mn;Vitesse du vent moyen 10 mn;Humidité;Température (°C);Altitude;communes (code)" >> ./Data/SelectedLine/WeatherbyT.csv
-            while IFS=";" read -r c1 c2 c3 c4 c5 c6 c7 c8 c9
+            echo "ID OMM station;Date;Direction du vent moyen 10 mn;Vitesse du vent moyen 10 mn;Humidité;Pression station;Coordonnees;Température (°C);Altitude;communes (code)" >> ./Data/FirstSelection/WeatherbyT.csv
+            while IFS=";" read -r c1 c2 c3 c4 c5 c6 c7 c8 c9 c10
             do
                 
                 if [ -z "$c2" ] ; then  continue ; fi
                 dataDate="${c2:0:10}"
                 if [[ ( "$dataDate" > $valJ || "$dataDate" == "$valJ" ) && ( "$dataDate" < $valK || "$dataDate" == "$valK" ) ]] ; then
-                    echo "$c1;$c2;$c3;$c4;$c5;$c6;$c7;$c8;$c9" >> ./Data/SelectedLine/WeatherbyT.csv
+                    echo "$c1;$c2;$c3;$c4;$c5;$c6;$c7;$c8;$c9;$c10" >> ./Data/FirstSelection/WeatherbyT.csv
                 fi
-            done < ./Data/SelectedLine/WeatherbyP.csv
+            done < ./Data/FirstSelection/WeatherbyP.csv
             return 1
         fi
     done
-    cp ./Data/SelectedLine/WeatherbyP.csv ./Data/SelectedLine/WeatherbyT.csv
+    cp ./Data/FirstSelection/WeatherbyP.csv ./Data/FirstSelection/WeatherbyT.csv
     return 1 
 
 }

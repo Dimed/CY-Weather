@@ -16,26 +16,26 @@ searchPlace (){
             6)declare -a arr=("98414");;
     esac
 
-    echo "ID OMM station;Date;Pression au niveau mer;Direction du vent moyen 10 mn;Vitesse du vent moyen 10 mn;Humidité;Température (°C);Altitude;communes (code)" >> ./Data/SelectedLine/WeatherbyP.csv
+    echo "ID OMM station;Date;Direction du vent moyen 10 mn;Vitesse du vent moyen 10 mn;Humidité;Pression station;Coordonnees;Température (°C);Altitude;communes (code)" >> ./Data/FirstSelection/WeatherbyP.csv
 
-    while IFS=";" read -r c1 c2 c3 c4 c5 c6 c7 c8 c9
+    while IFS=";" read -r c1 c2 c3 c4 c5 c6 c7 c8 c9 c10
     do
         
-        if [ -z "$c9" ] ; then  continue ; fi
+        if [ -z "$c10" ] ; then  continue ; fi
 
         if [ "$1" -eq 1 ] ; then
             for i in "${arr[@]}" 
             do
-                if [ "$i" != "$c9" ] ; then
-                    echo "$c1;$c2;$c3;$c4;$c5;$c6;$c7;$c8;$c9" >> ./Data/SelectedLine/WeatherbyP.csv
+                if [ "$i" != "$c10" ] ; then
+                    echo "$c1;$c2;$c3;$c4;$c5;$c6;$c7;$c8;$c9;$c10" >> ./Data/FirstSelection/WeatherbyP.csv
                     break
                 fi
             done
         else
             for i in "${arr[@]}" 
             do
-                if [ "$i" = "$c9" ] ; then
-                    echo "$c1;$c2;$c3;$c4;$c5;$c6;$c7;$c8;$c9" >> ./Data/SelectedLine/WeatherbyP.csv
+                if [ "$i" = "$c10" ] ; then
+                    echo "$c1;$c2;$c3;$c4;$c5;$c6;$c7;$c8;$c9;$c10" >> ./Data/FirstSelection/WeatherbyP.csv
                     break
                 fi
             done
@@ -47,7 +47,7 @@ searchPlace (){
 
 SpaceArg(){
 
-    rm -f ./Data/SelectedLine/WeatherbyP.csv
+    rm -f ./Data/FirstSelection/WeatherbyP.csv
 
     for i in "$@" ; do
 
@@ -109,7 +109,7 @@ SpaceArg(){
         esac
 
     done
-    cp ./Data/Origin/Weather.csv ./Data/SelectedLine/WeatherbyP.csv
+    cp ./Data/Origin/Weather.csv ./Data/FirstSelection/WeatherbyP.csv
     return 1
 
 }
