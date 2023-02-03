@@ -4,7 +4,7 @@
 for f in ./Source/Shell/*.sh ; do source "$f"; done
 
 
-listF="./Data/Final ./Data/ReadyToSort/WeatherT2.csv ./Data/ReadyToSort/WeatherP2.csv"
+listF="./Data/Final "
 
 HelpArg "$@"
 
