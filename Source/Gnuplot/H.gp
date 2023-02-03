@@ -1,4 +1,8 @@
 #!/usr/local/bin/gnuplot -persist
+
+
+# Display a interpolée graphique from SortWeatherH
+
 set datafile separator ";"
 set xlabel "Longitude (Ouest-Est)"
 set ylabel "Latitude (Sud-Nord)"

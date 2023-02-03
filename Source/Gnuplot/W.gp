@@ -1,5 +1,6 @@
 #!/usr/local/bin/gnuplot -persist
 
+# Display a vector graphique from SortWeatherW
 
 set datafile separator ';'
 set title "wind_vectors.png"

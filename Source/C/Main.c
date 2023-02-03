@@ -4,6 +4,9 @@
 int main(int argc,char **argv){
 
 
+    // Launch the correct sorting depending of the arguments
+
+
     if(! strcmp(argv[1],"--tab")){
         for (int i=3;i<argc;i++){
             if(! strcmp(argv[i],"./Data/ReadyToSort/WeatherT1.csv")){

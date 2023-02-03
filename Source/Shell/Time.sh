@@ -1,5 +1,10 @@
 #!/bin/bash
 
+
+
+
+# check if the argument is a date
+
 checkDate(){
 
     var=$1
@@ -9,6 +14,10 @@ checkDate(){
 
 
 }
+
+
+# check argument and return 0 if their is a problem, otherwise launch the selection by time
+
 
 TimeArg(){
 
@@ -25,6 +34,9 @@ TimeArg(){
             if checkDate ${!j} || checkDate ${!k}; then return 0; fi
             if [[ $valJ > $valK ]] ; then return 0; fi
             echo "ID OMM station;Date;Direction du vent moyen 10 mn;Vitesse du vent moyen 10 mn;Humidité;Pression station;Coordonnees;Température (°C);Altitude;communes (code)" >> ./Data/FirstSelection/WeatherbyT.csv
+            
+            # We read the old file and create a new one with the selection
+
             while IFS=";" read -r c1 c2 c3 c4 c5 c6 c7 c8 c9 
             do
                 

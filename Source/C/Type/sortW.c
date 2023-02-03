@@ -1,5 +1,8 @@
 #include "../header.h"
 
+
+// sort WeatherW by linked list
+
 void tabW(char *S, char *O){
     int cont;
     char ligne[80];

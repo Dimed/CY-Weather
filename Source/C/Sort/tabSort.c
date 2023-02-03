@@ -1,6 +1,7 @@
 #include "../header.h"
 
 
+// Create a Chainon
 
 Chainon *creationChainon(char *l, char *a){
 	Chainon * c = malloc(sizeof(Chainon));
@@ -15,6 +16,10 @@ Chainon *creationChainon(char *l, char *a){
 	return c;
 }
 
+
+
+// Create a csv from a Chainon list
+
 void createFile(Chainon *pliste,char *path){
 	Chainon* p1=pliste;
 	FILE *fp = fopen(path, "a");
@@ -25,6 +30,11 @@ void createFile(Chainon *pliste,char *path){
 	fclose(fp);
 }
 
+
+
+
+// Insert a Chainon at the star of a list
+
 Chainon * insertDebut(Chainon* pliste, char *l,char * a){
 	Chainon* nouveau=creationChainon(l,a);
 	nouveau -> suivant = pliste;
@@ -32,6 +42,10 @@ Chainon * insertDebut(Chainon* pliste, char *l,char * a){
 	return pliste;
 }
 
+
+
+
+// Add a Chainon by numeric croissant order
 
 Chainon *ajouterCroissant(Chainon *pliste, char *l,char * a){
 	Chainon *nouveau=creationChainon(l,a);
@@ -59,6 +73,11 @@ Chainon *ajouterCroissant(Chainon *pliste, char *l,char * a){
 }
 
 
+
+
+
+
+// Add a Chainon by numeric descending order
 
 Chainon *ajouterDecroissant(Chainon *pliste, char *l,char * a){
 	Chainon *nouveau=creationChainon(l,a);
@@ -88,6 +107,9 @@ Chainon *ajouterDecroissant(Chainon *pliste, char *l,char * a){
 
 
 
+
+// Add a Chainon by chronologique croissant order
+
 Chainon *ajouterCroissantChrono(Chainon *pliste, char *l,char * a){
 	Chainon *nouveau=creationChainon(l,a);
 	Chainon *p1 =pliste;
@@ -113,6 +135,10 @@ Chainon *ajouterCroissantChrono(Chainon *pliste, char *l,char * a){
 	return pliste;
 }
 
+
+
+
+// Add a Chainon by chronologique descending order
 
 
 Chainon *ajouterDecroissantChrono(Chainon *pliste, char *l,char * a){

@@ -1,37 +1,23 @@
 # ***Cy-Weather***
 
 
-## Bibliothèque informatique
+## Traitement de données météorologique
 
-CY-Library est une bibliothèque en ligne qui permet de se connecter à un compte et d'emprunter plusieurs livres.
-On peut créé un compte, se connecter ou rejoindre en tant qu'invité.<br/> 
-Une fois cela fait si on est invité, on peut voir la liste des livres.<br/> 
-Si on est élève, on peut en plus emprunté jusqu'à 3 livres pendant 2 minutes et les rendre quand on le souhaite. On peut aussi modifié son mot de passe.<br/> 
-Si on est professeur, on peut en plus ajouter ou supprimer des livres de la bibliothèque. De plus on passe à 5 livres pendant 3 minutes.
-
+Cy-Weather est script permettant de trier des données météorologique et d'afficher des graphiques a partir de ces données. <br>il faut pour cela utilisé ce fichier : [meteo_filtered_data_v1.csv](https://drive.google.com/file/d/19gXdK2M10TQjkAPbbgej761GCoVNlev2/view?usp=sharing).<br>Pour plus d'information voir [ceci](https://drive.google.com/file/d/1b7KFJtJ5EfPHIbNoQVgvELa5dNpfodbX/view?usp=sharing\n).
 ## Compatibilité système
 
 Le programme est compatible avec les dernières versions de **Ubuntu**.
 
 ## Technologies utilisées
 
-* Langage de programmation : <code>C</code>
+* Langage de programmation : <code>C</code> , <code>Bash</code> , <code>Gnuplot </code>
 * Type de programmation : **modulaire**
 * Logiciel utilisé : **Visual Studio Code**
-  
+
 ## Lancement
-Afin d'utiliser le programme, veuillez ouvrir un terminal dans le dossier <code>CY-Library/</code>.<br/> 
-Executer la commande <code>make</code> pour compiler le projet puis lancer le avec la commande <code>./CY-Library</code>.
+Afin d'utiliser le programme, veuillez ouvrir un terminal dans le dossier <code>CY-Weather/</code>.<br/> 
+Executer la commande <code>./Main.sh</code> avec les différents arguments voulu, pour plus d'information l'argument <code>--help</code> est disponible.
 
 ## Téléchargement
-* Télécharger <code>./CY-Library</code> et extraire le fichier .
-* Télécharger une version de [<code>-make</code>] et [<code>-gcc</code>]  (si cela n'est pas déjà fait).
-  
-## Règles
-
-* Il faut lire les différentes instructions du programme et les respecter.
-* Si une liste de chiffres est proposée, pour choisir il faut entrer le chiffre qui correspond à son choix.
-* Si (oui/non) est demandé il faut entrer oui ou non pour repondre.
-* Lorsque il est demandé de mettre un maximum de caractère,si cela n'est pas respecté, seul les caractéres inférieurs à ce maximum seront entrés<br/> 
---------->   _ex : si on entre bonjour avec 3 caractères max, le programme retiendra "bon"_
-* Lorsque il est demandé de ne pas mettre d'espace, si cela n'est pas respecté, le <code>scanf</code> ne retiendra que la partie avant le 1er espace et la partie suivante sera prise par le prochain <code>scanf</code>.
+* Télécharger <code>./CY-Weather</code> et extraire le fichier .
+* Télécharger une version recente de [<code>-make</code>] , [<code>-gcc</code>]  et [<code>-gnuplot</code>] (si cela n'est pas déjà fait).

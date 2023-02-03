@@ -1,5 +1,12 @@
 #!/bin/bash
 
+
+
+
+
+
+# check argument and return 0 if their is a problme, otherwise launch the selection by Tyoe of data
+
 TypeArg(){
 
     for f in ./Data/ReadyToSort/*.csv ; do  rm -f "$f"; done
@@ -8,7 +15,8 @@ TypeArg(){
     for i in "$@" ; do
 
         case $i in
-            "-t1")
+            "-t1") # give a file with the max, min and medium temperature per station
+
             cut -d ';' -f1,8 ./Data/FirstSelection/WeatherbyT.csv > ./Data/ReadyToSort/Weathert1.csv
             echo "ID OMM station;Température (°C)" >> ./Data/ReadyToSort/Weathert11.csv  
             while IFS=";" read -r c1 c2 
@@ -53,7 +61,8 @@ TypeArg(){
             listF+="./Data/ReadyToSort/WeatherT1.csv "
             succ=1 ;;
 
-            "-t2")
+            "-t2") # give a file with the medium temperature per Date
+
             cut -d ';' -f2,8 ./Data/FirstSelection/WeatherbyT.csv > ./Data/ReadyToSort/Weathert2.csv
             echo "Date;Température (°C)" >> ./Data/ReadyToSort/Weathert21.csv  
             while IFS=";" read -r c1 c2 
@@ -94,7 +103,8 @@ TypeArg(){
             listF+="./Data/ReadyToSort/WeatherT2.csv "
             succ=1 ;;
 
-            "-t3")
+            "-t3") # give a file with the temperature mesure per date and per station
+
             cut -d ';' -f1,2,8 ./Data/FirstSelection/WeatherbyT.csv > ./Data/ReadyToSort/Weathert3.csv
             while IFS=";" read -r c1 c2 c3
             do
@@ -109,7 +119,8 @@ TypeArg(){
             listF+="./Data/ReadyToSort/WeatherT3.csv "
             succ=1 ;;
 
-            "-p1")
+            "-p1") # give a file with the max, min and medium pression per station
+
             cut -d ';' -f1,6 ./Data/FirstSelection/WeatherbyT.csv > ./Data/ReadyToSort/Weatherp1.csv
             echo "ID OMM station;Pression station" >> ./Data/ReadyToSort/Weatherp11.csv  
             while IFS=";" read -r c1 c2 
@@ -154,7 +165,8 @@ TypeArg(){
             listF+="./Data/ReadyToSort/WeatherP1.csv "
             succ=1 ;;
 
-            "-p2")
+            "-p2") # give a file with the medium pression per Date
+
             cut -d ';' -f2,6 ./Data/FirstSelection/WeatherbyT.csv > ./Data/ReadyToSort/Weatherp2.csv
             echo "Date;Pression station" >> ./Data/ReadyToSort/Weatherp21.csv  
             while IFS=";" read -r c1 c2 
@@ -195,7 +207,8 @@ TypeArg(){
             listF+="./Data/ReadyToSort/WeatherP2.csv "
             succ=1 ;;
 
-            "-p3")
+            "-p3") # give a file with the pression mesure per date and per station
+
             cut -d ';' -f1,2,6 ./Data/FirstSelection/WeatherbyT.csv > ./Data/ReadyToSort/Weatherp3.csv
             while IFS=";" read -r c1 c2 c3
             do
@@ -210,7 +223,8 @@ TypeArg(){
             listF+="./Data/ReadyToSort/WeatherP3.csv "
             succ=1 ;;
 
-            "-w")
+            "-w") # give a file medium vector of wind speed per station and their coordinate
+
             cut -d ';' -f1,3,4,7 ./Data/FirstSelection/WeatherbyT.csv > ./Data/ReadyToSort/Weatherw.csv
             echo "ID OMM station;Vecteur vent en X;Vecteur vent en Y;Coordonnees" >> ./Data/ReadyToSort/Weatherw2.csv  
             while IFS=";" read -r c1 c2 c3 c4
@@ -261,7 +275,8 @@ TypeArg(){
             listF+="./Data/ReadyToSort/WeatherW.csv "
             succ=1 ;;
 
-            "-m")
+            "-m") # give a file with the  max moisture per station and their coordinate
+
             cut -d ';' -f1,5,7 ./Data/FirstSelection/WeatherbyT.csv > ./Data/ReadyToSort/Weatherm.csv
             while IFS=";" read -r c1 c2 c3
             do
@@ -299,7 +314,8 @@ TypeArg(){
             chmod 777 "./Data/ReadyToSort/WeatherM.csv"
             listF+="./Data/ReadyToSort/WeatherM.csv "
             succ=1 ;;
-            "-h")
+            "-h") # give a file with the  height per station and their coordinate
+
             cut -d ';' -f1,7,9 ./Data/FirstSelection/WeatherbyT.csv > ./Data/ReadyToSort/Weatherh.csv
             sort -r -u ./Data/ReadyToSort/Weatherh.csv  > ./Data/ReadyToSort/Weatherh2.csv
             while IFS=";" read -r c1 c2 c3

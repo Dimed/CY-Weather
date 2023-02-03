@@ -1,6 +1,11 @@
 #!/bin/bash
 
 
+
+
+
+# compile the C part if needed then launch the exe
+
 exeC(){
     if [ ! -f ./Cy-Weather ] ; then 
         (cd ./Source/C && make > /dev/null )
@@ -10,6 +15,8 @@ exeC(){
 }
 
 
+
+# check argument and lauch the exe  with the appropriate argument
 
 SortArg(){
 
@@ -26,25 +33,25 @@ SortArg(){
                 done
                 exeC "--tab" $listF
                 return 1;;
-            "--abr")
+            "--abr") # not implemented
                 for j in "$@" ; do
                     if [ "$j" = "--avl" ] || [ "$j" = "--tab" ] ; then   
                         return 0
                     fi
                 done
-                exeC "--abr" $listF
+                exeC "--tab" $listF 
                 return 1;;
-            "--avl") 
+            "--avl") # not implemented
                 for j in "$@" ; do
                     if [ "$j" = "--tab" ] || [ "$j" = "--abr" ] ; then   
                         return 0
                     fi 
                 done
-                exeC "--avl" $listF
+                exeC "--tab" $listF
                 return 1;;
         esac
     done
-    exeC "--avl"  $listF
+    exeC "--tab"  $listF
     return 1
 
 }

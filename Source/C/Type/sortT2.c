@@ -1,6 +1,9 @@
 #include "../header.h"
 
 
+
+// sort WeatherT2 by linked list
+
 void tabT2(char *S, char *O){
     int test;
     int cont;

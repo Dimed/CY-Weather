@@ -2,6 +2,9 @@
 
 
 
+# check argument and lauch the appropriate .gp to display all the graph
+
+
 FinalGraph(){
 
     for i in "$@" ; do
