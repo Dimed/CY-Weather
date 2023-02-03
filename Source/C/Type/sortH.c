@@ -3,6 +3,7 @@
 void tabH(char *S, char *O){
     int test;
     int test2;
+    int test3;
     int cont;
     char ligne[80];
     char ID[30];
@@ -13,12 +14,20 @@ void tabH(char *S, char *O){
     while (fgets(ligne,80,fp) != NULL){
         test=0;
         test2=0;
+        test3=0;
         cont=0;
         for(int i=0;ligne[i]!='\0';i++){
             if(test){
                 if(test2){
-                    if (ligne[i+1]=='\0'){ID[cont]=ligne[i];ID[cont+1]='\0';break;}
-                    else {ID[cont]=ligne[i];cont++;}
+                    if(test3){
+                        if (ligne[i+1]=='\0'){ID[cont]=ligne[i];ID[cont+1]='\0';break;}
+                        else {ID[cont]=ligne[i];cont++;}
+                    }
+                    else{
+                        if (ligne[i]==';'){
+                            test3=1;
+                        }
+                    }
                 }
                 else{
                     if (ligne[i]==';'){

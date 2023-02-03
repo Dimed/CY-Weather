@@ -287,7 +287,12 @@ TypeArg(){
                     do
                         if [[ "$d1" == "$c1" ]] && [[ $d2 > $max ]] ; then max=$d2 ; fi
                     done < ./Data/ReadyToSort/Weatherm2.csv 
-                    echo "$c1;$max;$c3" >> ./Data/ReadyToSort/WeatherM.csv  
+                    check=0
+                    IFS=',' read -ra ADDR <<< "$c3"
+                    for i in "${ADDR[@]}"; do
+                        if [ $check -eq 0 ] ; then long=$i; check=1; else lat=$i;fi
+                    done
+                    echo "$c1;$max;$long;$lat" >> ./Data/ReadyToSort/WeatherM.csv  
                 fi
             done < ./Data/ReadyToSort/Weatherm2.csv
             rm -f ./Data/ReadyToSort/Weatherm2.csv
@@ -302,7 +307,12 @@ TypeArg(){
                 if [ -z "$c3" ] ; then  
                     continue
                 else
-                    echo "$c1;$c2;$c3" >> ./Data/ReadyToSort/WeatherH.csv  
+                    check=0
+                    IFS=',' read -ra ADDR <<< "$c2"
+                    for i in "${ADDR[@]}"; do
+                        if [ $check -eq 0 ] ; then long=$i; check=1; else lat=$i;fi
+                    done
+                    echo "$c1;$long;$lat;$c3" >> ./Data/ReadyToSort/WeatherH.csv  
                 fi
             done < ./Data/ReadyToSort/Weatherh2.csv
             rm -f ./Data/ReadyToSort/Weatherh.csv

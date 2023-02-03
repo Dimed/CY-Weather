@@ -13,7 +13,7 @@ FinalGraph(){
             "-p1") gnuplot ./Source/Gnuplot/P1.gp -platform=wayland > /dev/null ;;
             "-p2") gnuplot ./Source/Gnuplot/P2.gp -platform=wayland > /dev/null ;;
             "-p3") gnuplot ./Source/Gnuplot/P3.gp -platform=wayland > /dev/null ;;
-            "-w") gnuplot ./Source/Gnuplot/W.gp -platform=wayland > /dev/null ;;
+            "-w") gnuplot  ./Source/Gnuplot/W.gp -platform=wayland > /dev/null ;;
             "-m") gnuplot ./Source/Gnuplot/M.gp -platform=wayland > /dev/null ;;
             "-h") gnuplot ./Source/Gnuplot/H.gp -platform=wayland > /dev/null ;;
         esac
