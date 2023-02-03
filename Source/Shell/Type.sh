@@ -248,7 +248,12 @@ TypeArg(){
                     done < <(tail -n +2 ./Data/ReadyToSort/Weatherw2.csv)
                     moyX=$(awk -v var=$addX -v var2=$con 'BEGIN{OFMT="%f";print var / var2}')
                     moyY=$(awk -v var=$addY -v var2=$con 'BEGIN{OFMT="%f";print var / var2}')
-                    echo "$c1;$moyX;$moyY;$c4" >> ./Data/ReadyToSort/WeatherW.csv  
+                    check=0
+                    IFS=',' read -ra ADDR <<< "$c4"
+                        for i in "${ADDR[@]}"; do
+                            if [ $check -eq 0 ] ; then long=$i; check=1; else lat=$i;fi
+                        done
+                    echo "$c1;$moyX;$moyY;$long;$lat" >> ./Data/ReadyToSort/WeatherW.csv  
                 fi
             done < <(tail -n +2 ./Data/ReadyToSort/Weatherw2.csv)
             rm -f ./Data/ReadyToSort/Weatherw2.csv
