@@ -11,16 +11,10 @@ void tabP2(char *S, char *O){
     FILE *fp= fopen(S,"r");
     fscanf(fp, "%*[^\n]\n");
     while (fgets(ligne,80,fp) != NULL){
-        test=0;
         cont=0;
-        for(int i=0;ligne[i]!='\0';i++){
-            if(test){
-                if (ligne[i]==';'){ID[cont]='\0';break;}
+        for(int i=0;ligne[i]!=';';i++){
+            if(ligne[i+1]==';'){ID[cont]=ligne[i];ID[cont+1]='\0';break;}
                 else {ID[cont]=ligne[i];cont++;}
-            }
-            else{
-                if (ligne[i]==';'){test=1;}
-            }
         }
         tbM=ajouterCroissantChrono(tbM,ligne,ID);
     }

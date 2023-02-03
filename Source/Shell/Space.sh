@@ -24,18 +24,21 @@ searchPlace (){
         if [ -z "$c10" ] ; then  continue ; fi
 
         if [ "$1" -eq 1 ] ; then
+            test=0
             for i in "${arr[@]}" 
             do
-                if [ "$i" != "$c10" ] ; then
-                    echo "$c1;$c2;$c3;$c4;$c5;$c6;$c7;$c8;$c9;$c10" >> ./Data/FirstSelection/WeatherbyP.csv
-                    break
+                if [[ "$i" == "$c10" ]] ; then
+                    test=1
                 fi
             done
+            if [ $test -eq 0 ] ; then 
+                    echo "$c1;$c2;$c3;$c4;$c5;$c6;$c7;$c8;$c9" >> ./Data/FirstSelection/WeatherbyP.csv
+            fi
         else
             for i in "${arr[@]}" 
             do
                 if [ "$i" = "$c10" ] ; then
-                    echo "$c1;$c2;$c3;$c4;$c5;$c6;$c7;$c8;$c9;$c10" >> ./Data/FirstSelection/WeatherbyP.csv
+                    echo "$c1;$c2;$c3;$c4;$c5;$c6;$c7;$c8;$c9" >> ./Data/FirstSelection/WeatherbyP.csv
                     break
                 fi
             done

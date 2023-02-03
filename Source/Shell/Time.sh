@@ -25,13 +25,13 @@ TimeArg(){
             if checkDate ${!j} || checkDate ${!k}; then return 0; fi
             if [[ $valJ > $valK ]] ; then return 0; fi
             echo "ID OMM station;Date;Direction du vent moyen 10 mn;Vitesse du vent moyen 10 mn;Humidité;Pression station;Coordonnees;Température (°C);Altitude;communes (code)" >> ./Data/FirstSelection/WeatherbyT.csv
-            while IFS=";" read -r c1 c2 c3 c4 c5 c6 c7 c8 c9 c10
+            while IFS=";" read -r c1 c2 c3 c4 c5 c6 c7 c8 c9 
             do
                 
                 if [ -z "$c2" ] ; then  continue ; fi
                 dataDate="${c2:0:10}"
                 if [[ ( "$dataDate" > $valJ || "$dataDate" == "$valJ" ) && ( "$dataDate" < $valK || "$dataDate" == "$valK" ) ]] ; then
-                    echo "$c1;$c2;$c3;$c4;$c5;$c6;$c7;$c8;$c9;$c10" >> ./Data/FirstSelection/WeatherbyT.csv
+                    echo "$c1;$c2;$c3;$c4;$c5;$c6;$c7;$c8;$c9" >> ./Data/FirstSelection/WeatherbyT.csv
                 fi
             done < ./Data/FirstSelection/WeatherbyP.csv
             return 1
