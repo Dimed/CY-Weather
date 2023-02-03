@@ -21,3 +21,7 @@ Executer la commande <code>./Main.sh</code> avec les différents arguments voulu
 ## Téléchargement
 * Télécharger <code>./CY-Weather</code> et extraire le fichier .
 * Télécharger une version recente de [<code>-make</code>] , [<code>-gcc</code>]  et [<code>-gnuplot</code>] (si cela n'est pas déjà fait).
+
+
+
+Fait par Abdelmalek Mehdi et Medddour Bissem
