@@ -49,6 +49,8 @@ TypeArg(){
                 fi
             done < <(tail -n +2 ./Data/ReadyToSort/Weathert11.csv)
             rm -f ./Data/ReadyToSort/Weathert11.csv
+            chmod 777 "./Data/ReadyToSort/WeatherT1.csv"
+            listF+="./Data/ReadyToSort/WeatherT1.csv "
             succ=1 ;;
 
             "-t2")
@@ -88,6 +90,8 @@ TypeArg(){
                 fi
             done < <(tail -n +2 ./Data/ReadyToSort/Weathert21.csv)
             rm -f ./Data/ReadyToSort/Weathert21.csv
+            chmod 777 "./Data/ReadyToSort/WeatherT2.csv"
+            listF+="./Data/ReadyToSort/WeatherT2.csv "
             succ=1 ;;
 
             "-t3")
@@ -101,6 +105,8 @@ TypeArg(){
                 fi
             done < ./Data/ReadyToSort/Weathert3.csv
             rm -f ./Data/ReadyToSort/Weathert3.csv
+            chmod 777 "./Data/ReadyToSort/WeatherT3.csv"
+            listF+="./Data/ReadyToSort/WeatherT3.csv "
             succ=1 ;;
 
             "-p1")
@@ -144,6 +150,8 @@ TypeArg(){
                 fi
             done < <(tail -n +2 ./Data/ReadyToSort/Weatherp11.csv)
             rm -f ./Data/ReadyToSort/Weatherp11.csv
+            chmod 777 "./Data/ReadyToSort/WeatherP1.csv"
+            listF+="./Data/ReadyToSort/WeatherP1.csv "
             succ=1 ;;
 
             "-p2")
@@ -183,6 +191,8 @@ TypeArg(){
                 fi
             done < <(tail -n +2 ./Data/ReadyToSort/Weatherp21.csv)
             rm -f ./Data/ReadyToSort/Weatherp21.csv
+            chmod 777 "./Data/ReadyToSort/WeatherP2.csv"
+            listF+="./Data/ReadyToSort/WeatherP2.csv "
             succ=1 ;;
 
             "-p3")
@@ -196,6 +206,8 @@ TypeArg(){
                 fi
             done < ./Data/ReadyToSort/Weatherp3.csv
             rm -f ./Data/ReadyToSort/Weatherp3.csv
+            chmod 777 "./Data/ReadyToSort/WeatherP3.csv"
+            listF+="./Data/ReadyToSort/WeatherP3.csv "
             succ=1 ;;
 
             "-w")
@@ -240,6 +252,8 @@ TypeArg(){
                 fi
             done < <(tail -n +2 ./Data/ReadyToSort/Weatherw2.csv)
             rm -f ./Data/ReadyToSort/Weatherw2.csv
+            chmod 777 "./Data/ReadyToSort/WeatherW.csv"
+            listF+="./Data/ReadyToSort/WeatherW.csv "
             succ=1 ;;
 
             "-m")
@@ -272,6 +286,8 @@ TypeArg(){
                 fi
             done < ./Data/ReadyToSort/Weatherm2.csv
             rm -f ./Data/ReadyToSort/Weatherm2.csv
+            chmod 777 "./Data/ReadyToSort/WeatherM.csv"
+            listF+="./Data/ReadyToSort/WeatherM.csv "
             succ=1 ;;
             "-h")
             cut -d ';' -f1,7,9 ./Data/FirstSelection/WeatherbyT.csv > ./Data/ReadyToSort/Weatherh.csv
@@ -286,6 +302,8 @@ TypeArg(){
             done < ./Data/ReadyToSort/Weatherh2.csv
             rm -f ./Data/ReadyToSort/Weatherh.csv
             rm -f ./Data/ReadyToSort/Weatherh2.csv
+            chmod 777 "./Data/ReadyToSort/WeatherH.csv"
+            listF+="./Data/ReadyToSort/WeatherH.csv "
             succ=1 ;;
         esac
     done

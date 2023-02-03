@@ -27,11 +27,11 @@ checkFile(){
 }
 
 exeC(){
-    if [ ! -f ./Source/C/Cy-Weather ] ; then 
+    if [ ! -f ./Cy-Weather ] ; then 
         (cd ./Source/C && make > /dev/null )
         for f in ./Source/C/*.o ; do  rm -f "$f"; done
     fi
-    ./Source/C/Cy-Weather "$@"
+    ./Cy-Weather "$@"
 }
 
 
@@ -47,7 +47,7 @@ HelpArg(){
 
 SortArg(){
 
-
+    for f in ./Data/Final/*.csv ; do  rm -f "$f"; done
 
     for i in "$@" ; do
 
@@ -58,7 +58,7 @@ SortArg(){
                         return 0
                     fi
                 done
-                exeC --tab ./Data/ReadytoSort ./Data/Final
+                exeC "--tab" $listF
                 return 1;;
             "--abr")
                 for j in "$@" ; do
@@ -66,19 +66,19 @@ SortArg(){
                         return 0
                     fi
                 done
-                exeC --abr ./Data/ReadytoSort ./Data/Final
+                exeC "--abr" $listF
                 return 1;;
-            "--avl")
+            "--avl") 
                 for j in "$@" ; do
                     if [ "$j" = "--tab" ] || [ "$j" = "--abr" ] ; then   
                         return 0
-                    fi
+                    fi 
                 done
-                exeC --avl./Data/ReadytoSort ./Data/Final
+                exeC "--avl" $listF
                 return 1;;
         esac
     done
-    exeC --avl ./Data/ReadytoSort ./Data/Final
+    exeC "--avl"  $listF
     return 1
 
 }
