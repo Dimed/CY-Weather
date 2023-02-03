@@ -4,11 +4,6 @@
 int main(int argc,char **argv){
 
 
-    int nbrl;
-    int id;
-    char line[60];
-    char rest[50];
-    char temp[20];
     if(! strcmp(argv[1],"--tab")){
         for (int i=3;i<argc;i++){
             if(! strcmp(argv[i],"./Data/ReadyToSort/WeatherT1.csv")){
@@ -18,8 +13,7 @@ int main(int argc,char **argv){
                 tabT2(argv[i],argv[2]);
             }
             else if(! strcmp(argv[i],"./Data/ReadyToSort/WeatherT3.csv")){
-        
-
+                tabT3(argv[i],argv[2]);
             }
             else if(! strcmp(argv[i],"./Data/ReadyToSort/WeatherP1.csv")){
                 tabP1(argv[i],argv[2]);
@@ -28,8 +22,7 @@ int main(int argc,char **argv){
                 tabP2(argv[i],argv[2]);
             }
             else if(! strcmp(argv[i],"./Data/ReadyToSort/WeatherP3.csv")){
-        
-
+                tabP3(argv[i],argv[2]);
             }
             else if(! strcmp(argv[i],"./Data/ReadyToSort/WeatherW.csv")){
                 tabW(argv[i],argv[2]);
@@ -39,16 +32,10 @@ int main(int argc,char **argv){
             }
             else if(! strcmp(argv[i],"./Data/ReadyToSort/WeatherH.csv")){
                 tabH(argv[i],argv[2]);
-        
-
             }
-
         }
-
-
-
-
     }
+
     else if(! strcmp(argv[1],"--abr")){
         for (int i=3;i<argc;i++){
 
